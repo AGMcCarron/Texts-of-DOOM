@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Chat + Godot Combined</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      overflow: hidden;
+      background: black;
+    }
+
+    /* The Godot game in the background */
+    #godot-frame {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      border: none;
+      z-index: 0;
+    }
+
+    /* The chat overlay panel */
+    #chat-panel {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 30vw;              /* width of the chat side */
+      height: 100vh;
+      background: rgba(15, 15, 20, 0.75); /* semi-transparent overlay */
+      color: white;
+      backdrop-filter: blur(4px); /* optional: nice blur behind text */
+      z-index: 1;
+      overflow-y: auto;
+      padding: 1em;
+      box-sizing: border-box;
+    }
+
+    iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    /* Optional: subtle shadow for separation */
+    #chat-panel {
+      box-shadow: 3px 0 15px rgba(0,0,0,0.4);
+    }
+  </style>
+</head>
+<body>
+  <!-- Godot background -->
+  <iframe
+    id="godot-frame"
+    src="http://localhost:8081/demo.html">
+  </iframe>
+
+  <!-- Chat overlay -->
+  <div id="chat-panel">
+    <iframe src="http://10.247.244.78:8080/webPage.html"></iframe>
+  </div>
+</body>
+</html>
